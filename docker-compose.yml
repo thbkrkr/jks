@@ -1,0 +1,9 @@
+jks:
+  container_name: jenkins
+  image: krkr/jks
+  environment:
+    - ./jks.env.example
+  ports:
+    - 8080:8080
+  volumes:
+    - ./jenkins_id_rsa:/usr/share/jenkins/keys/jenkins_id_rsa
