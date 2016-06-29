@@ -3,5 +3,6 @@ up:
 
 dev:
 	doo b
-	doo dc up -d --force-recreate
-	docker logs -f jks
+	doo dc docker-compose.yml down
+	doo dc docker-compose.yml up -d
+	docker logs -f jenkins

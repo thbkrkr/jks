@@ -49,3 +49,6 @@ junit:latest
 structs:latest
 workflow-step-api:latest
 hipchat:latest
+
+job-dsl:latest
+dashboard-view:latest
