@@ -9,11 +9,15 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <authToken>l3tsg0!</authToken>
   <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>docker run --rm -v $(pwd):/jobs jks/jobs | sh</command>
+      <command>
+docker pull {{ seed_job_image }}
+docker run --rm -v $(pwd):/jobs {{ seed_job_image }} | sh
+</command>
     </hudson.tasks.Shell>
     <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.48">
       <targets>**/*.groovy</targets>

@@ -23,3 +23,5 @@ RUN /usr/local/bin/plugins.sh /plugins.txt
 
 # Copy groovy scripts and seed jobs
 COPY ref /usr/share/jenkins/ref
+
+ENTRYPOINT ["/usr/share/jenkins/ref/start.sh"]
