@@ -5,7 +5,7 @@ import com.cloudbees.plugins.credentials.domains.*
 import com.cloudbees.plugins.credentials.impl.*
 import com.cloudbees.jenkins.plugins.sshcredentials.impl.*
 
-println "--> setting seed ssh creds"
+println "--> setting ssh creds"
 
 def seedCredsId = System.getenv("SEED_CREDS_ID")
 assert seedCredsId != null : "No SEED_CREDS_ID env var provided, but required"
@@ -25,9 +25,7 @@ def privateKey = "/usr/share/jenkins/keys/" + seedCredsId
 def keySource = new BasicSSHUserPrivateKey.FileOnMasterPrivateKeySource(privateKey)
 def description = ""
 
-// TODO: Test privateKey is a file
 def privateKeyFile = new File(privateKey)
-//assert privateKeyFile.exists() : privateKey + " doesn't exist"
 if (!privateKeyFile.exists()) {
   println "WARNING: " + privateKey + " doesn't exist"
 }

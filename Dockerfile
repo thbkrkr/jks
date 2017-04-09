@@ -1,27 +1,34 @@
-FROM jenkins:alpine
+FROM jenkinsci/blueocean:1.0.0
 
 USER root
 
-# Install Docker, Docker Compose and Docker Machine
-ENV DOCKER_VERSION=1.11.1 \
-    DOCKER_COMPOSE_VERSION=1.7.1 \
-    DOCKER_MACHINE_VERSION=0.7.0
-RUN apk --update \
-        add curl && \
-        curl https://get.docker.com/builds/Linux/x86_64/docker-${DOCKER_VERSION}.tgz | tar zx && \
-        mv /docker/* /bin/ && chmod +x /bin/docker* \
-    && \
-        apk add py-pip && \
-        pip install docker-compose==${DOCKER_COMPOSE_VERSION} \
-    && \
-        curl -sL https://github.com/docker/machine/releases/download/v${DOCKER_MACHINE_VERSION}/docker-machine-Linux-x86_64 > /usr/local/bin/docker-machine && \
-        chmod +x /usr/local/bin/docker-machine
+# Plugins
+RUN /usr/local/bin/install-plugins.sh \
+    workflow-aggregator:2.5 \
+    workflow-multibranch:2.14 \
+    pipeline-stage-view:2.6 \
+    pipeline-utility-steps:1.3.0 \
+    pipeline-model-definition:1.1.2 \
+    github-branch-source:2.0.5 \
+    github-organization-folder:1.6 \
+    ssh-agent:1.15 \
+    mailer:1.20 \
+    buildtriggerbadge:2.8.1 \
+    hipchat:2.1.1 \
+    job-dsl:1.59
 
-# Install plugins
-COPY plugins/plugins.txt /plugins.txt
-RUN /usr/local/bin/plugins.sh /plugins.txt
+# Install jq, make, docker and doo
+RUN apk --no-cache add jq make && \
+    \
+    curl -sL https://get.docker.com/builds/Linux/x86_64/docker-17.03.0-ce.tgz | tar zx && \
+        mv /docker/* /bin/ && chmod +x /bin/docker* && \
+    \
+    curl -s https://raw.githubusercontent.com/thbkrkr/doo/f8e46fb120e174b0f94fd578cbafd44a6612e3fa/doo \
+        > /usr/local/bin/doo && chmod +x /usr/local/bin/doo
 
-# Copy groovy scripts and seed jobs
-COPY ref /usr/share/jenkins/ref
+# Init groovy scripts
+COPY init.groovy.d /usr/share/jenkins/ref/init.groovy.d
 
-ENTRYPOINT ["/usr/share/jenkins/ref/start.sh"]
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+
+ENTRYPOINT ["/docker-entrypoint.sh"]

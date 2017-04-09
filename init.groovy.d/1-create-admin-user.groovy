@@ -1,4 +1,6 @@
-// Thanks https://gist.github.com/hayderimran7/50cb1244cc1e856873a4
+/*
+ * Create an admin user and a read-only touriste user.
+ */
 import jenkins.model.*
 import hudson.security.*
 
@@ -10,6 +12,7 @@ assert adminPassword != null : "No ADMIN_USERNAME env var provided, but required
 assert adminPassword != null : "No ADMIN_PASSWORD env var provided, but required"
 
 def hudsonRealm = new HudsonPrivateSecurityRealm(false)
+
 hudsonRealm.createAccount("touriste", "touriste")
 Jenkins.instance.setSecurityRealm(hudsonRealm)
 
