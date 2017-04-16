@@ -28,7 +28,7 @@ main() {
           &&
         echo "[OK] Plugin ${latestPlugin}" \
           ||
-        echo "[WARNING] Plugin ${plugin} out of date "
+        echo "[WARNING] Plugin ${plugin} out of date (latest: ${latestPlugin}) "
       ) \
       || echo "[ERROR] Plugin ${plugin} not found"
 

@@ -1,4 +1,4 @@
-FROM jenkinsci/blueocean:1.0.0
+FROM jenkinsci/blueocean:1.0.1
 
 USER root
 
@@ -15,7 +15,7 @@ RUN /usr/local/bin/install-plugins.sh \
     mailer:1.20 \
     buildtriggerbadge:2.8.1 \
     hipchat:2.1.1 \
-    job-dsl:1.59
+    job-dsl:1.60
 
 # Install jq, make, docker and doo
 RUN apk --no-cache add jq make && \
