@@ -20,7 +20,7 @@ RUN /usr/local/bin/install-plugins.sh \
 # Install jq, make, docker and doo
 RUN apk --no-cache add jq make && \
     \
-    curl -sL https://get.docker.com/builds/Linux/x86_64/docker-17.03.0-ce.tgz | tar zx && \
+    curl -sL https://get.docker.com/builds/Linux/x86_64/docker-17.05.0-ce.tgz | tar zx && \
         mv /docker/* /bin/ && chmod +x /bin/docker* && \
     \
     curl -s https://raw.githubusercontent.com/thbkrkr/doo/f8e46fb120e174b0f94fd578cbafd44a6612e3fa/doo \
