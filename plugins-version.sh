@@ -10,7 +10,7 @@ latest_versions() {
 }
 
 list_plugins() {
-  grep -o " [a-z\-]*:[0-9a-z][0-9a-z\.]*" Dockerfile
+  grep -o " [a-z\-]*:[0-9a-z][0-9a-z\.\-]*" Dockerfile
 }
 
 main() {

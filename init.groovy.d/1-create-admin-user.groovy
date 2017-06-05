@@ -12,16 +12,12 @@ assert adminPassword != null : "No ADMIN_USERNAME env var provided, but required
 assert adminPassword != null : "No ADMIN_PASSWORD env var provided, but required"
 
 def hudsonRealm = new HudsonPrivateSecurityRealm(false)
-
-hudsonRealm.createAccount("touriste", "touriste")
-Jenkins.instance.setSecurityRealm(hudsonRealm)
-
 hudsonRealm.createAccount(adminUsername, adminPassword)
 Jenkins.instance.setSecurityRealm(hudsonRealm)
-
-def strategy = new GlobalMatrixAuthorizationStrategy()
-strategy.add(Jenkins.READ, "touriste")
-strategy.add(Jenkins.ADMINISTER, adminUsername)
+def strategy = new FullControlOnceLoggedInAuthorizationStrategy()
+strategy.setAllowAnonymousRead(false)
 Jenkins.instance.setAuthorizationStrategy(strategy)
+//hudsonRealm.createAccount("touriste", "touriste")
+//Jenkins.instance.setSecurityRealm(hudsonRealm)
 
 Jenkins.instance.save()

@@ -1,21 +1,22 @@
-FROM jenkinsci/blueocean:1.0.1
+FROM jenkinsci/jenkins:2.63-alpine
 
 USER root
 
 # Plugins
 RUN /usr/local/bin/install-plugins.sh \
     workflow-aggregator:2.5 \
-    workflow-multibranch:2.14 \
-    pipeline-stage-view:2.6 \
+    workflow-multibranch:2.15 \
+    pipeline-stage-view:2.8 \
     pipeline-utility-steps:1.3.0 \
-    pipeline-model-definition:1.1.2 \
-    github-branch-source:2.0.5 \
+    pipeline-model-definition:1.1.4 \
+    github-branch-source:2.0.6 \
     github-organization-folder:1.6 \
+    blueocean:1.0.1 \
     ssh-agent:1.15 \
     mailer:1.20 \
     buildtriggerbadge:2.8.1 \
     hipchat:2.1.1 \
-    job-dsl:1.60
+    job-dsl:1.63
 
 # Install jq, make, docker and doo
 RUN apk --no-cache add jq make && \
