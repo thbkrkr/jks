@@ -8,7 +8,7 @@ RUN /usr/local/bin/install-plugins.sh \
     workflow-multibranch:2.15 \
     pipeline-stage-view:2.8 \
     pipeline-utility-steps:1.3.0 \
-    pipeline-model-definition:1.1.4 \
+    pipeline-model-definition:1.1.5 \
     github-branch-source:2.0.6 \
     github-organization-folder:1.6 \
     blueocean:1.0.1 \
