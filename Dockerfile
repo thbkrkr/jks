@@ -24,7 +24,7 @@ RUN apk --no-cache add jq make && \
     curl -sL https://get.docker.com/builds/Linux/x86_64/docker-17.05.0-ce.tgz | tar zx && \
         mv /docker/* /bin/ && chmod +x /bin/docker* && \
     \
-    curl -s https://raw.githubusercontent.com/thbkrkr/doo/f8e46fb120e174b0f94fd578cbafd44a6612e3fa/doo \
+    curl -s https://raw.githubusercontent.com/thbkrkr/doo/2bb83868c04ca105912a2767465f51d1803c9fb2/doo \
         > /usr/local/bin/doo && chmod +x /usr/local/bin/doo
 
 # Init groovy scripts
