@@ -1,4 +1,3 @@
-
 import hudson.model.FreeStyleProject;
 import hudson.plugins.git.GitSCM;
 import hudson.plugins.git.UserRemoteConfig;

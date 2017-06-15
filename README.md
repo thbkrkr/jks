@@ -5,8 +5,10 @@ Jenkins Docker image with [Docker](https://docs.docker.com)  based on
   - create an admin user
   - configure the number of executors
   - enable the slave master access control
-  - setup an SSH key to clone private git repositories
-  - create a seed job that uses the Job DSL plugin
+  - setup an ssh key to clone private git repositories
+  - create a seed job that uses the job dsl plugin to create all jobs
+  - disable the jenkins cli over remoting
+  - disable scripts security for the job dsl scripts
 
 ## Getting started
 
@@ -15,10 +17,15 @@ Jenkins Docker image with [Docker](https://docs.docker.com)  based on
 # Admin credentials
 ADMIN_USERNAME=admin
 ADMIN_PASSWORD=changeme
-# Git repository url of the seed jobs
-SEED_JOBS_URL=https://github.com/<you>/ci
-# Public SSH key to clone git repositories
-SEED_CREDS_ID=ssh_creds_id
+
+# Git repo url for the seed jobs (which uses the groovy job dsl plugin)
+SEED_JOBS_URL=https://github.com/thbkrkr/ci
+
+# '<name>:<key.pub.b64>' name and content in base 64 of the public ssh key to clone private repos
+SEED_CREDS=ci-bitbucket.id_rsa:Ae7tL11CaUdJ...S0PLX
+
+# Docker registry in base64 (base64 -w0 ~/.docker/config.json)
+REGISTRY_AUTH=dezJI...Sn0c
 ```
 
 ```yaml

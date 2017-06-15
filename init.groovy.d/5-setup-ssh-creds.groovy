@@ -1,3 +1,6 @@
+/*
+ * Install ssh key (in /usr/share/jenkins/keys/$SEED_CREDS_ID).
+ */
 import jenkins.model.*
 import com.cloudbees.plugins.credentials.*
 import com.cloudbees.plugins.credentials.common.*

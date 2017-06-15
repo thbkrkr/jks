@@ -1,5 +1,5 @@
 /*
- * Create an admin user and a read-only touriste user.
+ * Create an admin user.
  */
 import jenkins.model.*
 import hudson.security.*
@@ -17,7 +17,5 @@ Jenkins.instance.setSecurityRealm(hudsonRealm)
 def strategy = new FullControlOnceLoggedInAuthorizationStrategy()
 strategy.setAllowAnonymousRead(false)
 Jenkins.instance.setAuthorizationStrategy(strategy)
-//hudsonRealm.createAccount("touriste", "touriste")
-//Jenkins.instance.setSecurityRealm(hudsonRealm)
 
 Jenkins.instance.save()
