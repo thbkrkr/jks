@@ -11,7 +11,7 @@ RUN /usr/local/bin/install-plugins.sh \
     pipeline-model-definition:1.1.5 \
     github-branch-source:2.0.6 \
     github-organization-folder:1.6 \
-    blueocean:1.0.1 \
+    blueocean:1.1.1 \
     ssh-agent:1.15 \
     mailer:1.20 \
     buildtriggerbadge:2.8.1 \
