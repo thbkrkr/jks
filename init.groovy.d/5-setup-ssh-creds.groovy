@@ -9,6 +9,7 @@ println "--> setting ssh creds"
 
 def seedCredsId = System.getenv("SEED_CREDS_ID")
 assert seedCredsId != null : "No SEED_CREDS_ID env var provided, but required"
+println "--> seed ssh creds id: " + seedCredsId
 
 def global_domain = Domain.global()
 

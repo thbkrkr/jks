@@ -3,10 +3,7 @@ all:
 	doo t
 	doo p
 
-up:
-	docker-compose up -d
-
-dev:
+test:
 	doo b
-	doo dc docker-compose.yml up -d --force-recreate
-	docker logs -f jenkins
+	sudo rm -rf /var/jenkins_home
+	docker-compose up --force-recreate
