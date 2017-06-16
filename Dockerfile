@@ -19,11 +19,15 @@ RUN /usr/local/bin/install-plugins.sh \
     job-dsl:1.63 \
     bitbucket:1.1.5
 
-# Install jq, make, docker and doo
+# Install jq, make, docker, docker-compose and doo
 RUN apk --no-cache add jq make && \
     \
     curl -sL https://get.docker.com/builds/Linux/x86_64/docker-17.05.0-ce.tgz | tar zx && \
         mv /docker/* /bin/ && chmod +x /bin/docker* && \
+    \
+    apk add --no-cache py2-pip && \
+    pip install --upgrade pip && \
+    pip install docker-compose==1.13.0 && \
     \
     curl -s https://raw.githubusercontent.com/thbkrkr/doo/2bb83868c04ca105912a2767465f51d1803c9fb2/doo \
         > /usr/local/bin/doo && chmod +x /usr/local/bin/doo
