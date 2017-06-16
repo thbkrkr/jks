@@ -8,7 +8,7 @@ RUN /usr/local/bin/install-plugins.sh \
     workflow-multibranch:2.15 \
     pipeline-stage-view:2.8 \
     pipeline-utility-steps:1.3.0 \
-    pipeline-model-definition:1.1.5 \
+    pipeline-model-definition:1.1.6 \
     github-branch-source:2.0.6 \
     github-organization-folder:1.6 \
     blueocean:1.1.1 \
@@ -16,7 +16,8 @@ RUN /usr/local/bin/install-plugins.sh \
     mailer:1.20 \
     buildtriggerbadge:2.8.1 \
     hipchat:2.1.1 \
-    job-dsl:1.63
+    job-dsl:1.63 \
+    bitbucket:1.1.5
 
 # Install jq, make, docker and doo
 RUN apk --no-cache add jq make && \
