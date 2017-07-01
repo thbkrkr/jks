@@ -29,7 +29,7 @@ RUN apk --no-cache add jq make && \
     pip install --upgrade pip && \
     pip install docker-compose==1.13.0 && \
     \
-    curl -s https://raw.githubusercontent.com/thbkrkr/doo/2bb83868c04ca105912a2767465f51d1803c9fb2/doo \
+    curl -s https://raw.githubusercontent.com/thbkrkr/doo/b3a90ab3ba1b3375e9a9a2ec20da868473971205/doo \
         > /usr/local/bin/doo && chmod +x /usr/local/bin/doo
 
 # Init groovy scripts
