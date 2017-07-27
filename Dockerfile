@@ -1,22 +1,22 @@
-FROM jenkinsci/jenkins:2.66-alpine
+FROM jenkinsci/jenkins:2.71-alpine
 
 USER root
 
 # Plugins
 RUN /usr/local/bin/install-plugins.sh \
     workflow-aggregator:2.5 \
-    workflow-multibranch:2.15 \
+    workflow-multibranch:2.16 \
     pipeline-stage-view:2.8 \
     pipeline-utility-steps:1.3.0 \
     pipeline-model-definition:1.1.6 \
-    github-branch-source:2.0.6 \
+    github-branch-source:2.2.2 \
     github-organization-folder:1.6 \
     blueocean:1.1.1 \
     ssh-agent:1.15 \
     mailer:1.20 \
     buildtriggerbadge:2.8.1 \
     hipchat:2.1.1 \
-    job-dsl:1.63 \
+    job-dsl:1.64 \
     bitbucket:1.1.5
 
 # Install jq, make, docker, docker-compose and doo
