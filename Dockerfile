@@ -6,9 +6,9 @@ USER root
 RUN /usr/local/bin/install-plugins.sh \
     workflow-aggregator:2.5 \
     workflow-multibranch:2.16 \
-    pipeline-model-definition:1.1.9 \
+    pipeline-model-definition:1.2.1 \
     pipeline-stage-view:2.9 \
-    pipeline-utility-steps:1.4.0 \
+    pipeline-utility-steps:1.4.1 \
     github-branch-source:2.2.3 \
     github-organization-folder:1.6 \
     blueocean:1.2.0 \
