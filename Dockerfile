@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.85-alpine
+FROM jenkins/jenkins:2.95-alpine
 
 USER root
 
@@ -6,18 +6,18 @@ USER root
 RUN /usr/local/bin/install-plugins.sh \
     workflow-aggregator:2.5 \
     workflow-multibranch:2.16 \
-    pipeline-model-definition:1.2.2 \
+    pipeline-model-definition:1.2.5 \
     pipeline-stage-view:2.9 \
     pipeline-utility-steps:1.5.1 \
-    github-branch-source:2.2.4 \
+    github-branch-source:2.3.1 \
     github-organization-folder:1.6 \
-    blueocean:1.3.0 \
+    blueocean:1.3.5 \
     ssh-agent:1.15 \
     mailer:1.20 \
-    buildtriggerbadge:2.8.1 \
+    buildtriggerbadge:2.9 \
     hipchat:2.1.1 \
     job-dsl:1.66 \
-    bitbucket:1.1.5
+    bitbucket:1.1.8
 
 # Install jq, make, docker, docker-compose and doo
 RUN apk --no-cache add jq make && \
