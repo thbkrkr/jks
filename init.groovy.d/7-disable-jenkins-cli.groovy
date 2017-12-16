@@ -1,27 +1,11 @@
+/*
+ * Disable Jenkins CLI.
+ * This init script for Jenkins fixes a zero day vulnerability.
+ * http://jenkins-ci.org/content/mitigating-unauthenticated-remote-code-execution-0-day-jenkins-cli
+ * https://github.com/jenkinsci-cert/SECURITY-218
+ */
 import jenkins.*
-import jenkins.model.*
-import hudson.model.*
-import java.util.logging.Logger
+
+CLI.get().setEnabled(false)
 
 println "--> disabling the Jenkins CLI"
-
-// disabled CLI access over TCP listener (separate port)
-def p = AgentProtocol.all()
-p.each { x ->
-  if (x.name?.contains("CLI")) {
-    p.remove(x)
-  }
-}
-
-// disable CLI access over /cli URL
-def removal = { lst ->
-  lst.each { x ->
-    if (x.getClass().name.contains("CLIAction")) {
-      lst.remove(x)
-    }
-  }
-}
-
-def j = Jenkins.instance
-removal(j.getExtensionList(RootAction.class))
-removal(j.actions)
