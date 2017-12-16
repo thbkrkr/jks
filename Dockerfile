@@ -22,18 +22,15 @@ RUN /usr/local/bin/install-plugins.sh \
 # Install jq, make, docker, docker-compose and doo
 RUN apk --no-cache add jq make && \
     \
-    curl -sL https://download.docker.com/linux/static/stable/x86_64/docker-17.09.0-ce.tgz | tar zx && \
+    curl -sL https://download.docker.com/linux/static/edge/x86_64/docker-17.11.0-ce.tgz | tar zx && \
         mv /docker/* /bin/ && chmod +x /bin/docker* && \
     \
     apk add --no-cache py2-pip && \
     pip install --upgrade pip && \
-    pip install docker-compose==1.16.1 && \
+    pip install docker-compose==1.17.1 && \
     \
-    curl -sSL https://raw.githubusercontent.com/thbkrkr/doo/b3a90ab3ba1b3375e9a9a2ec20da868473971205/doo \
-        > /usr/local/bin/doo && chmod +x /usr/local/bin/doo && \
-    \
-    curl -sSL https://github.com/thbkrkr/qli/releases/download/0.2.3/oq \
-        > /usr/local/bin/oq && chmod +x /usr/local/bin/oq
+    curl -sSL https://raw.githubusercontent.com/thbkrkr/doo/7911779151a06d1e7172f0f18effe2ca2435d32a/doo \
+        > /usr/local/bin/doo && chmod +x /usr/local/bin/doo
 
 # Init groovy scripts
 COPY init.groovy.d /usr/share/jenkins/ref/init.groovy.d
