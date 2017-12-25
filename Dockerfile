@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.95-alpine
+FROM jenkins/jenkins:2.98-alpine
 
 USER root
 
@@ -9,7 +9,7 @@ RUN /usr/local/bin/install-plugins.sh \
     pipeline-model-definition:1.2.5 \
     pipeline-stage-view:2.9 \
     pipeline-utility-steps:1.5.1 \
-    github-branch-source:2.3.1 \
+    github-branch-source:2.3.2 \
     github-organization-folder:1.6 \
     blueocean:1.3.5 \
     ssh-agent:1.15 \
@@ -27,7 +27,7 @@ RUN apk --no-cache add jq make && \
     \
     apk add --no-cache py2-pip && \
     pip install --upgrade pip && \
-    pip install docker-compose==1.17.1 && \
+    pip install docker-compose==1.18.0 && \
     \
     curl -sSL https://raw.githubusercontent.com/thbkrkr/doo/7911779151a06d1e7172f0f18effe2ca2435d32a/doo \
         > /usr/local/bin/doo && chmod +x /usr/local/bin/doo
