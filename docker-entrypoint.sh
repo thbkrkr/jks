@@ -13,4 +13,4 @@ if [[ "${SEED_CREDS:-}" != "" ]]; then
   chmod 600 /usr/share/jenkins/keys/$SEED_CREDS_ID
 fi
 
-exec /bin/tini -- /usr/local/bin/jenkins.sh
+exec /sbin/tini -- /usr/local/bin/jenkins.sh
